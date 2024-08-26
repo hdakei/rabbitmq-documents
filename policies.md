@@ -79,3 +79,40 @@ In RabbitMQ, policies are a powerful feature that allows you to apply various se
    - **Example**: Setting `federation-upstream` to `my-upstream-broker`.
 
 These policy settings allow for extensive customization and optimization of RabbitMQ's behavior, tailored to specific application requirements and environments.
+
+
+### RabbitMQ policy options for different queue types, including numeric value ranges where applicable:
+
+### For All Queue Types:
+1. **Max length**: Sets the maximum number of messages the queue can hold. If not specified, there is no limit.
+2. **Max length bytes**: Specifies the maximum total size of all messages in bytes that a queue can hold.
+3. **Overflow behavior**: Configures what happens when the queue reaches its max length or max length bytes. Options include `drop-head` (oldest messages are dropped), `reject-publish` (new messages are rejected), or `reject-publish-dlx` (messages are rejected and sent to a dead letter exchange).
+4. **Dead letter exchange**: Designates an exchange to which messages will be redirected if they are dead-lettered.
+5. **Dead letter routing key**: Specifies the routing key used when dead-lettered messages are published to the dead letter exchange.
+6. **Auto expire**: Sets the duration (in milliseconds) after which the queue will be deleted if it is not used.
+
+### For Classic Queues:
+1. **HA mode**: Controls the high availability settings, with modes like `all`, `exactly`, or `nodes`.
+2. **HA params**: Provides parameters for the selected HA mode, such as the number of nodes.
+3. **HA sync mode**: Determines whether the queue mirrors are synchronized automatically or manually.
+4. **Message TTL**: Defines the time-to-live for messages in milliseconds.
+5. **Lazy mode**: Moves messages to disk as soon as possible to reduce memory usage.
+6. **Master locator**: Sets the rule for selecting the master node in mirrored setups.
+
+### For Quorum Queues:
+1. **Max in-memory length**: Limits the number of messages stored in memory before moving to disk.
+2. **Max in-memory bytes**: Limits the total message size in memory in bytes.
+3. **Delivery limit**: Restricts the number of unacknowledged messages delivered to consumers.
+
+### For Stream Queues:
+1. **Max age**: Sets the maximum age of any message in the stream before it is automatically deleted.
+2. **Max segment size in bytes**: Specifies the maximum size of each segment file in the stream.
+
+### General Options for Exchanges:
+1. **Alternate exchange**: Specifies an alternate exchange where messages will be routed if they cannot be delivered to any queue.
+
+### For Federation:
+1. **Federation upstream set**: Configures a set of upstream brokers.
+2. **Federation upstream**: Specifies a single upstream broker.
+
+These options provide extensive control over how messages are handled in RabbitMQ, allowing configurations for performance optimizations, high availability, and more reliable message handling across different scenarios. For specific numeric ranges and more in-depth configuration details, you can refer directly to the RabbitMQ official documentation [here](https://www.rabbitmq.com).
