@@ -115,4 +115,4 @@ These policy settings allow for extensive customization and optimization of Rabb
 1. **Federation upstream set**: Configures a set of upstream brokers.
 2. **Federation upstream**: Specifies a single upstream broker.
 
-These options provide extensive control over how messages are handled in RabbitMQ, allowing configurations for performance optimizations, high availability, and more reliable message handling across different scenarios. For specific numeric ranges and more in-depth configuration details, you can refer directly to the RabbitMQ official documentation [here](https://www.rabbitmq.com).
+These options provide extensive control over how messages are handled in RabbitMQ, allowing configurations for performance optimizations, high availability, and more reliable message handling across different scenarios. For specific numeric ranges and more in-depth configuration details, you can refer directly to the RabbitMQ official documentation [here]([https://www.rabbitmq.com](https://www.rabbitmq.com/docs/parameters#policies)).
